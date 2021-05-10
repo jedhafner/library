@@ -1,0 +1,50 @@
+
+body {
+    background: linear-gradient(105deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+container {
+    display: flex;
+    flex-direction: row;
+}
+form.form-example {
+    display: table;
+}
+
+div.form-example {
+    display: table-row;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
+
+#addABook{
+}
+
+#library{
+    margin: 20px;
+    display: flex;
+    wrap: row;
+}
+
+.libraryBook{
+    width: 100px;
+    height: 125px;
+    background: red;
+}
+
+
+.bookTitle{
+    color:pink;
+}
+
+.bookAuthor{
+    font-size: 10px;
+    font-style: italic;
+}
