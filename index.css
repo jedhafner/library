@@ -66,17 +66,22 @@ label {
     font-style: italic;
 }
 
-.remove{
+.remove, .readButton{
     background: pink;
     font-size:10px;
     font-family: sans-serif;
-    padding: 1px;
-    width: 33px;
+    padding: 2px;
     position: absolute;
     bottom: 5px;
+    border-radius: 1.5px;
 }
 
-.remove:hover {
+.readButton{
+    right: 10px;
+}
+
+
+.remove:hover, .readButton:hover {
     transform: scale(1.2);
     background:black;
     color: pink;

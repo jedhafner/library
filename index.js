@@ -59,11 +59,17 @@ function refreshLibrary() {
     remove.textContent = 'remove';
     remove.classList.add('remove');
     libraryBook.appendChild(remove);
-    console.log(`read? ${myLibrary[i].read}`)
+
+    let readButton = document.createElement('p');
+    readButton.classList.add('readButton');
+    libraryBook.appendChild(readButton);
+
     if (myLibrary[i].read){
       libraryBook.style.background = 'blue';
+      readButton.textContent = 'read';
     } else {
       libraryBook.style.background = 'white';
+      readButton.textContent = 'not read';
     }
     libraryBook.setAttribute('data-bookid', i);
 
@@ -88,7 +94,23 @@ function removeBook(book){
   localStorage.clear();
   localStorage.setItem('books', JSON.stringify(myLibrary));
 
- 
+  removeAllChildNodes(library);
+  refreshLibrary();
+}
+
+function toggleRead(book) {
+  let bookToToggle = book.parentElement;
+
+  let index = bookToToggle.getAttribute('data-bookid');
+  console.log(myLibrary[index].read);
+  if(myLibrary[index].read){
+    myLibrary[index].read = false
+  } else {
+    myLibrary[index].read = true
+  }
+  localStorage.clear();
+  localStorage.setItem('books', JSON.stringify(myLibrary));
+  
   removeAllChildNodes(library);
   refreshLibrary();
 }
@@ -98,6 +120,8 @@ library.addEventListener('click', function(event) {
   console.log(clicked);
   if (clicked.textContent === 'remove'){
     removeBook(clicked);
+  } else if (clicked.textContent === 'read' || clicked.textContent === "not read"){
+    toggleRead(clicked);
   }
 }
 )
