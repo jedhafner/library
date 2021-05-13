@@ -53,8 +53,6 @@ function refreshLibrary() {
     bookAuthor.textContent = `by ${myLibrary[i].author}`;
     libraryBook.appendChild(bookAuthor);
 
-    libraryBook.style.background = 'blue';
-
     let remove = document.createElement('p');
     remove.textContent = 'remove';
     remove.classList.add('remove');
@@ -64,12 +62,17 @@ function refreshLibrary() {
     readButton.classList.add('readButton');
     libraryBook.appendChild(readButton);
 
+    /*let addlInfo = document.createElement('span');
+    addlInfo.classList.add('addlInfo');
+    addlInfo.textContent = `genre: ${myLibrary[i].genre} pages: ${myLibrary[i].pages}`
+    libraryBook.appendChild(addlInfo);*/
+
     if (myLibrary[i].read){
       libraryBook.style.background = 'blue';
-      readButton.textContent = 'read';
+      readButton.textContent = 'mark as unread';
     } else {
       libraryBook.style.background = 'white';
-      readButton.textContent = 'not read';
+      readButton.textContent = 'mark as read';
     }
     libraryBook.setAttribute('data-bookid', i);
 
@@ -120,7 +123,7 @@ library.addEventListener('click', function(event) {
   console.log(clicked);
   if (clicked.textContent === 'remove'){
     removeBook(clicked);
-  } else if (clicked.textContent === 'read' || clicked.textContent === "not read"){
+  } else if (clicked.textContent === 'mark as unread' || clicked.textContent === "mark as read"){
     toggleRead(clicked);
   }
 }

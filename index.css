@@ -56,7 +56,7 @@ label {
 
 
 .bookTitle{
-    color:pink;
+    color:rgba(250, 192, 203, .85);
     font-size: 22px;
     font-style: oblique;
 }
@@ -67,7 +67,7 @@ label {
 }
 
 .remove, .readButton{
-    background: pink;
+    background:pink;
     font-size:10px;
     font-family: sans-serif;
     padding: 2px;
@@ -84,6 +84,6 @@ label {
 .remove:hover, .readButton:hover {
     transform: scale(1.2);
     background:black;
-    color: pink;
+    color: lavender;
     cursor: pointer;
 }
