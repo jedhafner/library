@@ -1,6 +1,7 @@
 
 body {
     background: linear-gradient(105deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    font-family: helvetica;
 }
 
 container {
@@ -30,13 +31,16 @@ label {
 #library{
     margin: 20px;
     display: flex;
-    wrap: row;
+    flex-wrap: wrap;
 }
 
 .libraryBook{
     width: 100px;
     height: 125px;
+    margin: 5px;
+    padding: 5px;
     background: red;
+    border-radius: 1.5px;
 }
 
 
@@ -47,4 +51,17 @@ label {
 .bookAuthor{
     font-size: 10px;
     font-style: italic;
+}
+
+.remove{
+    background: pink;
+    font-size:10px;
+    font-family: sans-serif;
+    padding: 1px;
+    width: 33px;
+}
+
+.remove:hover {
+    background:black;
+    color: pink;
 }
