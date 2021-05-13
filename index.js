@@ -30,7 +30,8 @@ function addBookToMyLibrary() {
   let newAuthor = document.getElementById('author').value
   let newGenre = document.getElementById('genre').value
   let newPages = document.getElementById('pages').value
-  let newRead = document.getElementById('read').value
+  //re-write next line so checkbox determines value of newRead
+  let newRead = document.getElementById('read').checked
   let submit = document.getElementById('submit')
   let book = new Book(newTitle, newAuthor, newGenre, newPages, newRead);
   myLibrary.push(book);
@@ -52,11 +53,18 @@ function refreshLibrary() {
     bookAuthor.textContent = `by ${myLibrary[i].author}`;
     libraryBook.appendChild(bookAuthor);
 
+    libraryBook.style.background = 'blue';
+
     let remove = document.createElement('p');
     remove.textContent = 'remove';
     remove.classList.add('remove');
     libraryBook.appendChild(remove);
-
+    console.log(`read? ${myLibrary[i].read}`)
+    if (myLibrary[i].read){
+      libraryBook.style.background = 'blue';
+    } else {
+      libraryBook.style.background = 'white';
+    }
     libraryBook.setAttribute('data-bookid', i);
 
     library.appendChild(libraryBook);
@@ -80,8 +88,7 @@ function removeBook(book){
   localStorage.clear();
   localStorage.setItem('books', JSON.stringify(myLibrary));
 
-  //PROBLEM: When myLibrary is updated, the indices shift around the removed
-  // book, but the data-attribute of books in the DOM do NOT. So if a
+ 
   removeAllChildNodes(library);
   refreshLibrary();
 }
